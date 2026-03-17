@@ -1,5 +1,6 @@
 package com.example.configserver.controller;
 
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.cloud.bus.endpoint.RefreshBusEndpoint;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,6 +11,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api")
+@ConditionalOnBean(RefreshBusEndpoint.class)
 public class TriggerController {
 
 	private final RefreshBusEndpoint refreshBusEndpoint;
